@@ -1,19 +1,24 @@
-# galexx_mx Static Site
+# Galexx MX — Sitio estático
 
-This repository contains a static web page extracted from `galexx_mx.zip`.
+Sitio premium para gorras **Galexx MX**: intro cinematográfica, diseño liquid glass, tienda y carga optimizada.
 
-## Notes
+## Vista local
 
-- The site is a static single-page app.
-- Assets are loaded from relative paths so it works on GitHub Pages under any repository path.
-- The external Google Fonts import has been removed to improve initial load speed.
+Sirve la carpeta `site/` con cualquier servidor estático, o abre `index.html` (la intro con video requiere servidor).
 
-## Deploy to GitHub Pages
+```bash
+npx serve site
+```
 
-1. Create a GitHub repository.
-2. Push this folder to the repository.
-3. Enable GitHub Pages from the repository settings and serve from the `main` branch root.
+## Intro personalizada
 
-## Local preview
+Ver [ASSETS.md](ASSETS.md) para agregar `intro.mp4`, `intro.webm` o `intro-poster.jpg`.
 
-Open `index.html` in a browser or serve the folder with a static server.
+## Imágenes
+
+- Originales: `*.png` en la raíz de `site/`
+- Optimizadas para web: `images/*-md.jpg` (~40–110 KB)
+
+## Deploy
+
+GitHub Pages desde la raíz de `site/`. Dominio: `galexx-mx.myzenith.space` (`CNAME`).

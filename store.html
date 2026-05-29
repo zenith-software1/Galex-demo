@@ -3,174 +3,49 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Tienda — Galexx_mx</title>
-    <meta name="description" content="Tienda oficial de Galexx_mx" />
+    <title>Tienda — Galexx MX</title>
+    <meta name="description" content="Tienda oficial Galexx MX. Gorras premium." />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="stylesheet" href="assets/index-DTHkgMTy.css" crossorigin />
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { background: #0a0a0a; color: #fff; font-family: 'Inter', sans-serif; }
-
-      /* Hero / Intro */
-      .hero-section {
-        background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
-        padding: 6rem 2rem;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-      .hero-section::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        right: -20%;
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 70%);
-        border-radius: 50%;
-        filter: blur(100px);
-      }
-      .hero-content { position: relative; z-index: 2; }
-      .hero-content h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; text-transform: uppercase; letter-spacing: -2px; margin-bottom: 1rem; background: linear-gradient(to bottom, #fff, #ccc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-      .hero-content p { font-size: 1.25rem; color: #aaa; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6; }
-      .hero-badge { display: inline-block; padding: 0.75rem 1.5rem; background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 999px; margin-bottom: 2rem; font-size: 0.9rem; }
-
-      /* Container */
-      .store-container { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
-
-      /* Header */
-      .store-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; gap: 2rem; }
-      .store-header h2 { font-size: 2.5rem; font-weight: 900; text-transform: uppercase; }
-      .back-link { color: #fff; opacity: 0.7; text-decoration: none; transition: opacity 0.3s; font-size: 0.95rem; }
-      .back-link:hover { opacity: 1; }
-
-      /* Products Grid */
-      .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
-
-      /* Product Card - Liquid Glass */
-      .product-card {
-        background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255,255,255,0.12);
-        padding: 1.5rem;
-        border-radius: 16px;
-        transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
-        cursor: pointer;
-        position: relative;
-        overflow: hidden;
-      }
-      .product-card::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(circle at top left, rgba(255,255,255,0.1), transparent);
-        opacity: 0;
-        transition: opacity 0.3s;
-      }
-      .product-card:hover {
-        background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
-        border-color: rgba(255,255,255,0.2);
-        transform: translateY(-8px);
-      }
-      .product-card:hover::before { opacity: 1; }
-
-      .product-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; margin-bottom: 1rem; }
-      .product-meta { position: relative; z-index: 1; }
-      .product-name { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
-      .product-desc { font-size: 0.9rem; color: #aaa; margin-bottom: 0.75rem; line-height: 1.4; }
-      .price { font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 1rem; }
-      .buy {
-        display: inline-block;
-        padding: 0.75rem 1.5rem;
-        background: rgba(255,255,255,0.1);
-        border: 1px solid rgba(255,255,255,0.2);
-        border-radius: 8px;
-        color: #fff;
-        text-decoration: none;
-        cursor: pointer;
-        font-weight: 600;
-        transition: all 0.3s;
-        width: 100%;
-        text-align: center;
-        font-size: 0.95rem;
-      }
-      .buy:hover {
-        background: rgba(255,255,255,0.15);
-        border-color: rgba(255,255,255,0.3);
-        transform: scale(1.02);
-      }
-
-      /* Floating Cart */
-      .cart-floating {
-        position: fixed;
-        right: 24px;
-        bottom: 24px;
-        background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255,255,255,0.15);
-        color: #fff;
-        padding: 14px 18px;
-        border-radius: 999px;
-        z-index: 999;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s;
-        cursor: pointer;
-      }
-      .cart-floating:hover {
-        background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.08));
-        border-color: rgba(255,255,255,0.25);
-        transform: scale(1.05);
-      }
-      .cart-count { background: linear-gradient(135deg, #ff6b6b, #ee5a6f); padding: 3px 8px; border-radius: 6px; margin-left: 10px; font-size: 0.85rem; font-weight: 700; }
-
-      /* Info Section */
-      .info-section {
-        background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
-        backdrop-filter: blur(15px);
-        border: 1px solid rgba(255,255,255,0.1);
-        padding: 3rem;
-        border-radius: 16px;
-        margin-top: 4rem;
-      }
-      .info-section h3 { font-size: 1.8rem; margin-bottom: 1rem; }
-      .info-section p { font-size: 1rem; color: #bbb; line-height: 1.8; }
-
-      @media (max-width: 768px) {
-        .hero-section { padding: 4rem 1.5rem; }
-        .store-header { flex-direction: column; text-align: center; }
-        .products-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1.5rem; }
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
+    <link href="https://fonts.bunny.net/css?family=outfit:700,800|dm-sans:400,500" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/galexx.css" />
+    <link rel="stylesheet" href="assets/store.css" />
   </head>
   <body>
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="hero-content">
-        <div class="hero-badge">🔥 COLECCIÓN EXCLUSIVA 2026</div>
-        <h1>Así se vería tu negocio</h1>
-        <p>Tienda premium con diseño de nivel internacional. Gorras originales, compra segura y experiencia de lujo.</p>
-      </div>
-    </section>
-
-    <!-- Main Store -->
-    <div class="store-container">
-      <div class="store-header">
-        <h2>Colección</h2>
-        <a class="back-link" href="index.html">← Volver</a>
-      </div>
-
-      <div id="products" class="products-grid"></div>
-
-      <!-- Info Section -->
-      <div class="info-section">
-        <h3>💳 Sistema de Pagos Premium</h3>
-        <p>Esta tienda es una demostración del potencial de tu negocio. Integración lista para: <strong>Snipcart</strong>, <strong>Stripe</strong>, <strong>Gumroad</strong> o cualquier plataforma de pagos que prefieras. El diseño está optimizado para conversión y experiencia premium.</p>
-      </div>
+    <div class="ambient" aria-hidden="true">
+      <div class="ambient__orb ambient__orb--1"></div>
+      <div class="ambient__orb ambient__orb--2"></div>
     </div>
 
-    <a id="cartBtn" class="cart-floating" href="#">🛍 Carrito <span id="cartCount" class="cart-count">0</span></a>
+    <header class="nav is-scrolled">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__brand">GALEXX</a>
+        <ul class="nav__links">
+          <li><a href="index.html#drops">Drops</a></li>
+          <li><a href="index.html#lookbook">Lookbook</a></li>
+          <li><a href="store.html">Tienda</a></li>
+        </ul>
+        <a href="index.html" class="nav__cta" style="background:var(--glass);color:var(--text);border:1px solid var(--border)">Inicio</a>
+      </div>
+    </header>
 
-    <script src="assets/store.js"></script>
+    <main class="store-page">
+      <section class="store-hero reveal is-visible">
+        <p class="sec-label">Tienda oficial</p>
+        <h1>Tu colección<br /><span>empieza aquí</span></h1>
+        <p class="store-hero__sub">Selecciona, agrega al carrito y finaliza por WhatsApp o correo.</p>
+      </section>
+
+      <div class="wrap">
+        <div id="products" class="store-grid"></div>
+      </div>
+    </main>
+
+    <button type="button" id="cartBtn" class="cart-fab glass glass--shimmer" aria-label="Carrito">
+      <span>Carrito</span>
+      <span id="cartCount" class="cart-fab__count">0</span>
+    </button>
+
+    <script src="assets/store.js" defer></script>
   </body>
 </html>

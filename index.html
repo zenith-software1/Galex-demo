@@ -1,25 +1,209 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>galexx_mx</title>
-    <meta name="description" content="galexx_mx — built on Replit. Update this description to reflect the app." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galexx MX — Gorras Premium</title>
+    <meta name="description" content="Gorras premium de edición limitada. Hechas en CDMX. Galexx MX." />
     <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="galexx_mx" />
-    <meta property="og:description" content="galexx_mx — built on Replit. Update this description to reflect the app." />
+    <meta property="og:title" content="Galexx MX — Gorras Premium" />
+    <meta property="og:description" content="Gorras premium de edición limitada. Hechas en CDMX." />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="opengraph.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="galexx_mx" />
-    <meta name="twitter:description" content="galexx_mx — built on Replit. Update this description to reflect the app." />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="preload" as="style" href="assets/index-DTHkgMTy.css">
-    <link rel="stylesheet" crossorigin href="assets/index-DTHkgMTy.css">
-    <link rel="preload" as="script" href="assets/index-BHM8UHdv.js">
-    <script type="module" crossorigin src="assets/index-BHM8UHdv.js"></script>
+    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
+    <link href="https://fonts.bunny.net/css?family=outfit:700,800|dm-sans:400,500" rel="stylesheet" />
+    <link rel="preload" as="image" href="images/hero-md.jpg" />
+    <link rel="stylesheet" href="assets/galexx.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <a href="store.html" style="position:fixed;right:18px;bottom:90px;background:#111827;color:#fff;padding:10px 14px;border-radius:999px;z-index:999;box-shadow:0 8px 24px rgba(0,0,0,.5);text-decoration:none">Tienda</a>
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient__orb ambient__orb--1"></div>
+    <div class="ambient__orb ambient__orb--2"></div>
+    <div class="ambient__orb ambient__orb--3"></div>
+  </div>
+
+  <div id="intro" class="intro" aria-label="Intro">
+    <img id="introMedia" class="intro__media" src="images/hero-md.jpg" alt="" />
+    <div class="intro__veil"></div>
+    <div class="intro__content">
+      <div class="intro__logo">Galexx</div>
+      <p class="intro__tag">MX · Gorras</p>
+      <div class="intro__bar"><div class="intro__bar-fill"></div></div>
+    </div>
+    <button type="button" id="introSkip" class="intro__skip">Saltar</button>
+  </div>
+
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__brand">GALEXX</a>
+      <ul class="nav__links">
+        <li><a href="#drops">Drops</a></li>
+        <li><a href="#lookbook">Lookbook</a></li>
+        <li><a href="store.html">Tienda</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <a href="store.html" class="nav__cta">Comprar</a>
+      <button type="button" class="nav__burger" aria-label="Menú">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero__grid">
+        <div class="hero__copy reveal">
+          <div class="hero__badge">Edición limitada · CDMX</div>
+          <h1 class="hero__title">
+            <span>Gorras</span>
+            <span>con actitud.</span>
+          </h1>
+          <p class="hero__sub">Diseño urbano, materiales premium y drops que no vuelven.</p>
+          <div class="hero__actions">
+            <a href="store.html" class="btn btn--gold">Ver tienda</a>
+            <a href="#drops" class="btn btn--glass">Último drop</a>
+          </div>
+        </div>
+        <div class="hero__visual reveal reveal--delay-1">
+          <div class="hero__frame">
+            <div class="hero__frame-inner img-wrap is-loading">
+              <img
+                src="images/hero-md.jpg"
+                alt="Gorra Galexx MX"
+                width="800"
+                height="800"
+                fetchpriority="high"
+                decoding="async"
+                onload="this.classList.add('is-loaded');this.parentElement.classList.remove('is-loading')"
+              />
+            </div>
+          </div>
+          <div class="hero__float glass glass--shimmer">
+            <span>Nuevo drop</span>
+            <strong>2026</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="drops" class="drops">
+      <div class="sec-head reveal">
+        <div>
+          <p class="sec-label">Colección</p>
+          <h2>Último drop</h2>
+        </div>
+        <p>Piezas numeradas. Cuando se acaban, se acaban.</p>
+      </div>
+      <div class="drops__grid">
+        <a href="store.html" class="card glass glass--shimmer reveal">
+          <div class="card__img img-wrap is-loading">
+            <img data-src="images/cap1-md.jpg" alt="Origen Concreto" width="800" height="800" decoding="async" />
+          </div>
+          <div class="card__body">
+            <p class="card__type">Snapback</p>
+            <h3 class="card__name">Origen Concreto</h3>
+            <p class="card__price">$650 MXN</p>
+            <p class="card__cta">Ver en tienda →</p>
+          </div>
+        </a>
+        <a href="store.html" class="card glass glass--shimmer reveal reveal--delay-1">
+          <div class="card__img img-wrap is-loading">
+            <img data-src="images/cap2-md.jpg" alt="Atardecer Trucker" width="800" height="800" decoding="async" />
+          </div>
+          <div class="card__body">
+            <p class="card__type">Mesh back</p>
+            <h3 class="card__name">Atardecer Trucker</h3>
+            <p class="card__price">$550 MXN</p>
+            <p class="card__cta">Ver en tienda →</p>
+          </div>
+        </a>
+        <a href="store.html" class="card glass glass--shimmer reveal reveal--delay-2">
+          <div class="card__img img-wrap is-loading">
+            <img data-src="images/cap3-md.jpg" alt="Grit Oliva" width="800" height="800" decoding="async" />
+          </div>
+          <div class="card__body">
+            <p class="card__type">Dad hat</p>
+            <h3 class="card__name">Grit Oliva</h3>
+            <p class="card__price">$600 MXN</p>
+            <p class="card__cta">Ver en tienda →</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="strip reveal">
+        <div class="strip__item glass">
+          <h3>Bordado premium</h3>
+          <p>Detalle frontal de alto relieve</p>
+        </div>
+        <div class="strip__item glass">
+          <h3>Envío nacional</h3>
+          <p>CDMX y todo México</p>
+        </div>
+        <div class="strip__item glass">
+          <h3>Pago seguro</h3>
+          <p>Transferencia o contraentrega</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section id="lookbook" class="lookbook">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <p class="sec-label">Lookbook</p>
+          <h2>En la calle</h2>
+        </div>
+      </div>
+    </div>
+    <div class="lookbook__track">
+      <figure class="lookbook__slide glass reveal">
+        <div class="img-wrap is-loading" style="width:100%;height:100%;position:absolute;inset:0">
+          <img data-src="images/lifestyle1-md.jpg" alt="CDMX" width="800" height="1000" decoding="async" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <figcaption class="lookbook__cap">CDMX · Centro</figcaption>
+      </figure>
+      <figure class="lookbook__slide glass reveal reveal--delay-1">
+        <div class="img-wrap is-loading" style="width:100%;height:100%;position:absolute;inset:0">
+          <img data-src="images/lifestyle2-md.jpg" alt="Skate" width="800" height="1000" decoding="async" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <figcaption class="lookbook__cap">Sesión · Concreto</figcaption>
+      </figure>
+      <figure class="lookbook__slide glass reveal reveal--delay-2">
+        <div class="img-wrap is-loading" style="width:100%;height:100%;position:absolute;inset:0">
+          <img data-src="images/hero-md.jpg" alt="Galexx" width="800" height="800" decoding="async" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <figcaption class="lookbook__cap">Galexx MX</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="contacto" class="cta-band glass glass--shimmer reveal">
+    <h2>Únete al movimiento</h2>
+    <p>Drops, restocks y contenido antes que nadie.</p>
+    <div class="cta-band__actions">
+      <a
+        href="https://www.instagram.com/galexx_mx"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn--gold"
+      >@galexx_mx</a>
+      <a href="store.html" class="btn btn--glass">Ir a la tienda</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__brand">GALEXX MX</span>
+      <p class="footer__copy">© 2026 Galexx MX. Todos los derechos reservados.</p>
+      <a href="https://www.instagram.com/galexx_mx" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </footer>
+
+  <a href="store.html" class="fab-shop">Tienda</a>
+
+  <script src="assets/galexx.js" defer></script>
   </body>
 </html>

@@ -1,73 +1,119 @@
-(function(){
+(function () {
+  'use strict';
+
   const products = [
-    {id:'g1',name:'Gorra Clásica Negra',price:4990,image:'cap1.png',desc:'Canvas resistente, bordado frontal premium.'},
-    {id:'g2',name:'Gorra Logo Blanco',price:5490,image:'cap2.png',desc:'Logo minimalista, visera curva ergonómica.'},
-    {id:'g3',name:'Gorra Edición Hero',price:6990,image:'hero.png',desc:'Edición limitada con detalles reflectantes.'},
-    {id:'g4',name:'Gorra Lifestyle Daily',price:4590,image:'lifestyle1.png',desc:'Diseño cómodo para uso diario premium.'},
-    {id:'g5',name:'Gorra Vintage Edition',price:4990,image:'lifestyle2.png',desc:'Look clásico con lavado vintage exclusivo.'},
-    {id:'g6',name:'Gorra Negra Premium',price:7990,image:'cap3.png',desc:'Material premium, resistente al agua.'}
+    { id: 'g1', name: 'Origen Concreto', price: 65000, image: 'images/cap1-md.jpg', desc: 'Snapback · bordado premium' },
+    { id: 'g2', name: 'Atardecer Trucker', price: 55000, image: 'images/cap2-md.jpg', desc: 'Mesh back · visera curva' },
+    { id: 'g3', name: 'Grit Oliva', price: 60000, image: 'images/cap3-md.jpg', desc: 'Dad hat · tono oliva' },
+    { id: 'g4', name: 'Lifestyle Daily', price: 45900, image: 'images/lifestyle1-md.jpg', desc: 'Uso diario · fit cómodo' },
+    { id: 'g5', name: 'Vintage Wash', price: 49900, image: 'images/lifestyle2-md.jpg', desc: 'Acabado vintage exclusivo' },
+    { id: 'g6', name: 'Negra Premium', price: 79900, image: 'images/hero-md.jpg', desc: 'Material resistente al agua' },
   ];
 
-  function formatPrice(cents){
-    return '$' + (cents/100).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' MXN';
+  function formatPrice(cents) {
+    return '$' + (cents / 100).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' MXN';
   }
 
-  function render(){
+  function getCart() {
+    try {
+      return JSON.parse(localStorage.getItem('galex_cart') || '[]');
+    } catch {
+      return [];
+    }
+  }
+
+  function saveCart(cart) {
+    localStorage.setItem('galex_cart', JSON.stringify(cart));
+  }
+
+  function updateCartCount() {
+    const el = document.getElementById('cartCount');
+    if (!el) return;
+    el.textContent = getCart().reduce((s, i) => s + i.qty, 0);
+  }
+
+  function loadImage(img) {
+    const wrap = img.closest('.img-wrap');
+    img.onload = () => {
+      img.classList.add('is-loaded');
+      wrap?.classList.remove('is-loading');
+    };
+    if (img.complete) img.onload();
+  }
+
+  function render() {
     const root = document.getElementById('products');
+    if (!root) return;
     root.innerHTML = '';
-    products.forEach(p=>{
-      const card = document.createElement('div');
-      card.className = 'product-card';
+
+    products.forEach((p) => {
+      const card = document.createElement('article');
+      card.className = 'store-card glass glass--shimmer reveal is-visible';
       card.innerHTML = `
-        <img src="${p.image}" alt="${p.name}" loading="lazy">
-        <div class="product-meta">
-          <div class="product-name">${p.name}</div>
-          <div class="product-desc">${p.desc}</div>
-          <div class="price">${formatPrice(p.price)}</div>
-          <button class="buy" data-id="${p.id}">Agregar al carrito</button>
+        <div class="store-card__img img-wrap is-loading">
+          <img src="${p.image}" alt="${p.name}" width="800" height="800" loading="lazy" decoding="async" />
+        </div>
+        <div class="store-card__body">
+          <h2 class="store-card__name">${p.name}</h2>
+          <p class="store-card__desc">${p.desc}</p>
+          <p class="store-card__price">${formatPrice(p.price)}</p>
+          <button type="button" class="store-card__buy" data-id="${p.id}">Agregar</button>
         </div>
       `;
       root.appendChild(card);
+      loadImage(card.querySelector('img'));
     });
-    document.querySelectorAll('.buy').forEach(btn=>btn.addEventListener('click', addToCart));
+
+    root.querySelectorAll('.store-card__buy').forEach((btn) => {
+      btn.addEventListener('click', addToCart);
+    });
     updateCartCount();
   }
 
-  function getCart(){
-    try { return JSON.parse(localStorage.getItem('galex_cart')||'[]'); } catch(e){return []}
-  }
-  function saveCart(cart){ localStorage.setItem('galex_cart', JSON.stringify(cart)); }
+  function addToCart(e) {
+    const btn = e.currentTarget;
+    const id = btn.getAttribute('data-id');
+    const prod = products.find((p) => p.id === id);
+    if (!prod) return;
 
-  function addToCart(e){
-    const id = e.currentTarget.getAttribute('data-id');
-    const prod = products.find(p=>p.id===id);
-    if(!prod) return;
     const cart = getCart();
-    const entry = cart.find(c=>c.id===id);
-    if(entry) entry.qty++; else cart.push({id:prod.id,name:prod.name,price:prod.price,qty:1});
+    const entry = cart.find((c) => c.id === id);
+    if (entry) entry.qty++;
+    else cart.push({ id: prod.id, name: prod.name, price: prod.price, qty: 1 });
     saveCart(cart);
     updateCartCount();
-    e.currentTarget.textContent = '✓ Agregado';
-    setTimeout(() => { e.currentTarget.textContent = 'Agregar al carrito'; }, 1200);
+
+    btn.textContent = '✓ Agregado';
+    btn.classList.add('is-added');
+    setTimeout(() => {
+      btn.textContent = 'Agregar';
+      btn.classList.remove('is-added');
+    }, 1400);
   }
 
-  function updateCartCount(){
-    const count = getCart().reduce((s,i)=>s+i.qty,0);
-    document.getElementById('cartCount').textContent = count;
-  }
-
-  // Checkout: opens email draft with order summary
-  function checkout(){
+  function checkout() {
     const cart = getCart();
-    if(cart.length===0){ alert('El carrito está vacío'); return; }
-    const lines = cart.map(i=>`${i.qty} x ${i.name} — ${(i.price/100).toFixed(0)} MXN`).join('%0A');
-    const total = (cart.reduce((s,i)=>s+i.price*i.qty,0)/100).toFixed(0);
-    const body = encodeURIComponent(`Hola, quiero realizar esta compra:%0A%0A${lines}%0A%0ATotal: $${total} MXN%0A%0A---DATOS DE ENVÍO---%0ANombre completo:%0ADirección:%0ATelefono/WhatsApp:%0A`);
-    window.location.href = `mailto:ventas@tudominio.com?subject=Pedido%20Galexx%20Mx&body=${body}`;
+    if (!cart.length) {
+      alert('Tu carrito está vacío');
+      return;
+    }
+    const lines = cart
+      .map((i) => `${i.qty}× ${i.name} — ${formatPrice(i.price * i.qty)}`)
+      .join('\n');
+    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    const body = encodeURIComponent(
+      `Hola, quiero comprar:\n\n${lines}\n\nTotal: ${formatPrice(total)}\n\nNombre:\nDirección:\nWhatsApp:`
+    );
+    const wa = `https://wa.me/525500000000?text=${body}`;
+    if (confirm('¿Enviar pedido por WhatsApp?\n(Aceptar = WhatsApp · Cancelar = correo)')) {
+      window.open(wa, '_blank');
+    } else {
+      window.location.href = `mailto:ventas@galexx.mx?subject=Pedido%20Galexx%20MX&body=${body}`;
+    }
   }
 
-  document.addEventListener('DOMContentLoaded', ()=>{
+  document.addEventListener('DOMContentLoaded', () => {
     render();
-    document.getElementById('cartBtn').addEventListener('click', function(e){ e.preventDefault(); checkout(); });
+    document.getElementById('cartBtn')?.addEventListener('click', checkout);
   });
 })();

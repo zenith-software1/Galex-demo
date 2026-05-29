@@ -454,25 +454,4 @@ img {
 
 .intro__media { opacity: 0.85; }
 
-@media (max-width: 900px) {
-  .hero-cine__content { grid-template-columns: 1fr; }
-  .hero-cine__thumbs {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .bento { grid-template-columns: 1fr; }
-  .bento__featured { grid-row: span 1; }
-  .bento__featured .bento__img { min-height: 280px; }
-  .craft-grid { grid-template-columns: 1fr; }
-  .craft-grid__visual { min-height: 320px; }
-  .lookbook-masonry {
-    grid-template-columns: 1fr 1fr;
-    grid-auto-rows: 180px;
-  }
-  .lookbook-masonry__item,
-  .lookbook-masonry__item--tall,
-  .lookbook-masonry__item--wide { grid-column: span 1; grid-row: span 1; }
-  .sec-head__right { text-align: left; }
-  .footer--rich .footer__inner { grid-template-columns: 1fr; }
-}
+/* Mobile: ver assets/mobile.css */

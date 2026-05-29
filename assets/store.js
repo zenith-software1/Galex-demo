@@ -3,9 +3,9 @@
 
   /* Una foto por modelo: cap1, cap2, cap3. hero/lifestyle = intro y lookbook solamente. */
   const products = [
-    { id: 'g1', name: 'Origen Concreto', price: 65000, image: 'cap1.png', desc: 'Snapback negra · bordado premium' },
-    { id: 'g2', name: 'Atardecer Trucker', price: 55000, image: 'cap2.png', desc: 'Mesh back · logo minimalista' },
-    { id: 'g3', name: 'Negra Premium', price: 79900, image: 'cap3.png', desc: 'Material premium · edición limitada' },
+    { id: 'g1', name: 'Origen Concreto', price: 65000, image: 'images/cap1-hq.jpg', desc: 'Snapback negra · bordado premium' },
+    { id: 'g2', name: 'Atardecer Trucker', price: 55000, image: 'images/cap2-hq.jpg', desc: 'Mesh back · logo minimalista' },
+    { id: 'g3', name: 'Negra Premium', price: 79900, image: 'images/cap3-hq.jpg', desc: 'Material premium · edición limitada' },
   ];
 
   function formatPrice(cents) {

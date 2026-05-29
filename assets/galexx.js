@@ -112,22 +112,22 @@
     const hq = img.getAttribute('data-src');
     const picture = img.closest('picture');
     const pngSrc = picture?.querySelector('source[type="image/png"]')?.getAttribute('srcset');
-    if (window.innerWidth >= 768 && pngSrc) return pngSrc;
-    return hq;
+    if (window.matchMedia('(min-width: 769px)').matches && pngSrc) return pngSrc;
+    return hq || img.getAttribute('src');
   }
 
   function initLazyImages() {
     document.querySelectorAll('img[data-src]').forEach((img) => {
-      const wrap = img.closest('.img-wrap') || img.parentElement;
+      const wrap = img.closest('.img-wrap') || img.closest('picture')?.parentElement || img.parentElement;
       const load = () => {
         const src = bestImageSrc(img);
         if (!src) return;
-        wrap?.classList.add('is-loading');
+        if (wrap?.classList) wrap.classList.add('is-loading');
         img.onload = () => {
           img.classList.add('is-loaded');
-          wrap?.classList.remove('is-loading');
+          wrap?.classList?.remove('is-loading');
         };
-        img.onerror = () => wrap?.classList.remove('is-loading');
+        img.onerror = () => wrap?.classList?.remove('is-loading');
         img.src = src;
         img.removeAttribute('data-src');
       };
@@ -181,10 +181,36 @@
       { passive: true }
     );
 
-    burger?.addEventListener('click', () => links?.classList.toggle('is-open'));
+    const closeNav = () => {
+      links?.classList.remove('is-open');
+      burger?.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('is-nav-open');
+    };
+
+    const openNav = () => {
+      links?.classList.add('is-open');
+      burger?.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('is-nav-open');
+    };
+
+    burger?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (links?.classList.contains('is-open')) closeNav();
+      else openNav();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!links?.classList.contains('is-open')) return;
+      if (e.target.closest('.nav__inner')) return;
+      closeNav();
+    });
 
     document.querySelectorAll('.nav__links a').forEach((a) => {
-      a.addEventListener('click', () => links?.classList.remove('is-open'));
+      a.addEventListener('click', closeNav);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.matchMedia('(min-width: 901px)').matches) closeNav();
     });
   }
 

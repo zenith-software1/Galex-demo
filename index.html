@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Galexx MX — Gorras Premium</title>
     <meta name="description" content="Gorras premium de edición limitada. Hechas en CDMX." />
     <meta property="og:title" content="Galexx MX" />
@@ -13,6 +13,7 @@
     <link rel="preload" as="image" href="hero.png" />
     <link rel="stylesheet" href="assets/galexx.css" />
     <link rel="stylesheet" href="assets/galexx-premium.css" />
+    <link rel="stylesheet" href="assets/mobile.css" />
   </head>
   <body>
     <div class="grain" aria-hidden="true"></div>
@@ -37,14 +38,15 @@
     <header class="nav">
       <div class="nav__inner">
         <a href="#" class="nav__brand">GALEXX<span>MX</span></a>
-        <ul class="nav__links">
+        <ul class="nav__links" id="navLinks">
           <li><a href="#drops">Drops</a></li>
           <li><a href="#craft">Calidad</a></li>
           <li><a href="#lookbook">Lookbook</a></li>
           <li><a href="store.html">Tienda</a></li>
+          <li class="nav__mobile-cta"><a href="store.html">Comprar ahora</a></li>
         </ul>
-        <a href="store.html" class="nav__cta">Comprar</a>
-        <button type="button" class="nav__burger" aria-label="Menú">
+        <a href="store.html" class="nav__cta nav__cta--desk">Comprar</a>
+        <button type="button" class="nav__burger" id="navBurger" aria-label="Menú" aria-expanded="false" aria-controls="navLinks">
           <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
       </div>
@@ -60,7 +62,7 @@
     <section class="hero-cine">
       <div class="hero-cine__bg img-wrap">
         <picture>
-          <source srcset="hero.png" type="image/png" />
+          <source srcset="hero.png" type="image/png" media="(min-width: 769px)" />
           <img src="images/hero-hq.jpg" alt="" class="hero-cine__bg-img is-loaded" width="1408" height="768" fetchpriority="high" decoding="async" />
         </picture>
       </div>
@@ -112,7 +114,7 @@
           <a href="store.html" class="bento__featured glass glass--shimmer">
             <div class="bento__img img-wrap">
               <picture>
-                <source srcset="cap1.png" type="image/png" />
+                <source srcset="cap1.png" type="image/png" media="(min-width: 769px)" />
                 <img src="images/cap1-hq.jpg" alt="Origen Concreto" width="1024" height="1024" loading="lazy" decoding="async" class="is-loaded" />
               </picture>
               <span class="bento__tag">Más vendida</span>
@@ -127,7 +129,7 @@
           <a href="store.html" class="bento__card glass">
             <div class="bento__img img-wrap">
               <picture>
-                <source srcset="cap2.png" type="image/png" />
+                <source srcset="cap2.png" type="image/png" media="(min-width: 769px)" />
                 <img data-src="images/cap2-hq.jpg" data-png="cap2.png" alt="Atardecer Trucker" width="1024" height="1024" decoding="async" />
               </picture>
             </div>
@@ -139,7 +141,7 @@
           <a href="store.html" class="bento__card glass">
             <div class="bento__img img-wrap">
               <picture>
-                <source srcset="cap3.png" type="image/png" />
+                <source srcset="cap3.png" type="image/png" media="(min-width: 769px)" />
                 <img data-src="images/cap3-hq.jpg" data-png="cap3.png" alt="Negra Premium" width="1024" height="1024" decoding="async" />
               </picture>
             </div>
@@ -190,28 +192,28 @@
       <div class="lookbook-masonry wrap">
         <figure class="lookbook-masonry__item lookbook-masonry__item--tall reveal glass">
           <picture>
-            <source srcset="lifestyle1.png" type="image/png" />
+            <source srcset="lifestyle1.png" type="image/png" media="(min-width: 769px)" />
             <img data-src="images/lifestyle1-hq.jpg" alt="CDMX" width="1408" height="768" decoding="async" />
           </picture>
           <figcaption>CDMX · Centro Histórico</figcaption>
         </figure>
         <figure class="lookbook-masonry__item reveal reveal--delay-1 glass">
           <picture>
-            <source srcset="cap1.png" type="image/png" />
+            <source srcset="cap1.png" type="image/png" media="(min-width: 769px)" />
             <img data-src="images/cap1-hq.jpg" alt="Producto" width="1024" height="1024" decoding="async" />
           </picture>
           <figcaption>Origen · Concreto</figcaption>
         </figure>
         <figure class="lookbook-masonry__item reveal reveal--delay-2 glass">
           <picture>
-            <source srcset="lifestyle2.png" type="image/png" />
+            <source srcset="lifestyle2.png" type="image/png" media="(min-width: 769px)" />
             <img data-src="images/lifestyle2-hq.jpg" alt="Sesión" width="1408" height="768" decoding="async" />
           </picture>
           <figcaption>Sesión · Skate</figcaption>
         </figure>
         <figure class="lookbook-masonry__item lookbook-masonry__item--wide reveal reveal--delay-3 glass">
           <picture>
-            <source srcset="cap3.png" type="image/png" />
+            <source srcset="cap3.png" type="image/png" media="(min-width: 769px)" />
             <img data-src="images/cap3-hq.jpg" alt="Premium" width="1024" height="1024" decoding="async" />
           </picture>
           <figcaption>Negra · Premium</figcaption>

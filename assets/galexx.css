@@ -274,6 +274,11 @@ section { padding: 5rem 0; }
   padding: 0.5rem;
 }
 
+.nav__mobile-cta {
+  display: none;
+  list-style: none;
+}
+
 /* Hero */
 .hero {
   min-height: 100dvh;

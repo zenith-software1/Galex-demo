@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Tienda — Galexx MX</title>
     <meta name="description" content="Tienda oficial Galexx MX. Gorras premium." />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/galexx.css" />
     <link rel="stylesheet" href="assets/galexx-premium.css" />
     <link rel="stylesheet" href="assets/store.css" />
+    <link rel="stylesheet" href="assets/mobile.css" />
   </head>
   <body>
     <div class="ambient" aria-hidden="true">
@@ -20,13 +21,17 @@
 
     <header class="nav is-scrolled">
       <div class="nav__inner">
-        <a href="index.html" class="nav__brand">GALEXX</a>
-        <ul class="nav__links">
+        <a href="index.html" class="nav__brand">GALEXX<span>MX</span></a>
+        <ul class="nav__links" id="navLinks">
           <li><a href="index.html#drops">Drops</a></li>
           <li><a href="index.html#lookbook">Lookbook</a></li>
           <li><a href="store.html">Tienda</a></li>
+          <li class="nav__mobile-cta"><a href="store.html">Ver carrito</a></li>
         </ul>
-        <a href="index.html" class="nav__cta" style="background:var(--glass);color:var(--text);border:1px solid var(--border)">Inicio</a>
+        <a href="index.html" class="nav__cta nav__cta--desk" style="background:var(--glass);color:var(--text);border:1px solid var(--border)">Inicio</a>
+        <button type="button" class="nav__burger" id="navBurger" aria-label="Menú" aria-expanded="false" aria-controls="navLinks">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
       </div>
     </header>
 
@@ -34,7 +39,7 @@
       <section class="store-hero reveal is-visible">
         <p class="sec-label">Tienda oficial</p>
         <h1>Tu colección<br /><span>empieza aquí</span></h1>
-        <p class="store-hero__sub">Selecciona, agrega al carrito y finaliza por WhatsApp o correo.</p>
+        <p class="store-hero__sub">Agrega al carrito y paga por WhatsApp.</p>
       </section>
 
       <div class="wrap">
@@ -47,6 +52,7 @@
       <span id="cartCount" class="cart-fab__count">0</span>
     </button>
 
+    <script src="assets/galexx.js" defer></script>
     <script src="assets/store.js" defer></script>
   </body>
 </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tienda — Galexx_mx</title>
+    <meta name="description" content="Tienda oficial de Galexx_mx" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="assets/index-DTHkgMTy.css" crossorigin />
+    <style>
+      /* Small overrides for the store layout */
+      .store-container{padding:3rem 1rem;max-width:1100px;margin:0 auto}
+      .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
+      .product-card{background:#0b0b0b;padding:1rem;border-radius:12px;color:#fff}
+      .product-card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+      .product-meta{margin-top:0.6rem}
+      .price{font-weight:700;margin-top:0.5rem}
+      .buy{margin-top:0.75rem;display:inline-block;padding:0.6rem 0.9rem;border-radius:8px;background:#111827;border:2px solid #111827;color:#fff}
+      .cart-floating{position:fixed;right:18px;bottom:18px;background:#111827;color:#fff;padding:12px 14px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,0.5);z-index:999}
+      .cart-count{background:#ef4444;padding:2px 6px;border-radius:8px;margin-left:8px}
+      .store-header{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.5rem}
+      .back-link{color:#fff;opacity:0.85}
+    </style>
+  </head>
+  <body>
+    <div class="store-container">
+      <div class="store-header">
+        <div>
+          <h1 class="text-4xl font-display font-black">Tienda Galexx</h1>
+          <p class="text-sm text-white/70">Gorras originales — compra segura. (Integraciones de pago por configurar)</p>
+        </div>
+        <div>
+          <a class="back-link" href="index.html">← Volver al inicio</a>
+        </div>
+      </div>
+
+      <div id="products" class="products-grid"></div>
+
+      <div style="margin-top:2rem">
+        <h2 class="text-2xl font-semibold">Pagos</h2>
+        <p class="text-white/70">Esta tienda es una demostración estática. Para habilitar pagos seguros y automatizados recomiendo integrar <strong>Snipcart</strong>, <strong>Gumroad</strong> o <strong>Stripe Checkout</strong>. Puedo ayudarte a configurar cualquiera de ellos.</p>
+      </div>
+    </div>
+
+    <a id="cartBtn" class="cart-floating" href="#">Carrito <span id="cartCount" class="cart-count">0</span></a>
+
+    <script src="assets/store.js"></script>
+  </body>
+</html>

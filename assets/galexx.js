@@ -2,7 +2,7 @@
   'use strict';
 
   const INTRO_MIN_MS = 2200;
-  const INTRO_MAX_MS = 5500;
+  const INTRO_MAX_MS = 12000;
 
   const introEl = document.getElementById('intro');
   const introMedia = document.getElementById('introMedia');
@@ -70,6 +70,12 @@
       const video = mountIntroVideo(media, introMedia);
       video.addEventListener('ended', () => scheduleDone(400));
       video.addEventListener('error', () => scheduleDone(INTRO_MIN_MS));
+      video.addEventListener('loadedmetadata', () => {
+        const ms = Number.isFinite(video.duration)
+          ? Math.min(video.duration * 1000 + 400, INTRO_MAX_MS)
+          : INTRO_MAX_MS;
+        scheduleDone(Math.max(ms, INTRO_MIN_MS));
+      });
       video.play().catch(() => scheduleDone(INTRO_MIN_MS));
       scheduleDone(INTRO_MAX_MS);
     } else if (introMedia) {

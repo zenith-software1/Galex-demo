@@ -1,3 +1,19 @@
+# Preview al compartir (WhatsApp, Instagram, etc.)
+
+El sitio usa **`og-image.jpg`** (1200×630 px) para la miniatura al mandar el link.
+
+- Archivo: `site/og-image.jpg` (también copia en `opengraph.jpg`)
+- URL pública: `https://galexx-mx.myzenith.space/og-image.jpg`
+
+Si quieres **tu propia imagen**, reemplaza `og-image.jpg` con:
+- Tamaño: **1200 × 630** px (horizontal)
+- Formato: JPG, menos de 500 KB
+- Texto grande legible: GALEXX MX + “Gorras premium”
+
+WhatsApp guarda caché: si no ves el cambio, prueba [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) y “Scrape Again”.
+
+---
+
 # Medios para la intro y productos
 
 ## Video de intro (recomendado)

@@ -4,207 +4,249 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Galexx MX — Gorras Premium</title>
-    <meta name="description" content="Gorras premium de edición limitada. Hechas en CDMX. Galexx MX." />
-    <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="Galexx MX — Gorras Premium" />
-    <meta property="og:description" content="Gorras premium de edición limitada. Hechas en CDMX." />
-    <meta property="og:type" content="website" />
+    <meta name="description" content="Gorras premium de edición limitada. Hechas en CDMX." />
+    <meta property="og:title" content="Galexx MX" />
     <meta property="og:image" content="opengraph.jpg" />
-    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
-    <link href="https://fonts.bunny.net/css?family=outfit:700,800|dm-sans:400,500" rel="stylesheet" />
-    <link rel="preload" as="video" href="intro.mp4" type="video/mp4" />
-    <link rel="preload" as="image" href="images/hero-md.jpg" />
+    <link href="https://fonts.bunny.net/css?family=outfit:400,600,700,800|dm-sans:400,500,600" rel="stylesheet" />
+    <link rel="preload" as="image" href="hero.png" />
     <link rel="stylesheet" href="assets/galexx.css" />
+    <link rel="stylesheet" href="assets/galexx-premium.css" />
   </head>
   <body>
-  <div class="ambient" aria-hidden="true">
-    <div class="ambient__orb ambient__orb--1"></div>
-    <div class="ambient__orb ambient__orb--2"></div>
-    <div class="ambient__orb ambient__orb--3"></div>
-  </div>
-
-  <div id="intro" class="intro" aria-label="Intro">
-    <img id="introMedia" class="intro__media" src="images/hero-md.jpg" alt="" />
-    <div class="intro__veil"></div>
-    <div class="intro__content">
-      <div class="intro__logo">Galexx</div>
-      <p class="intro__tag">MX · Gorras</p>
-      <div class="intro__bar"><div class="intro__bar-fill"></div></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="ambient" aria-hidden="true">
+      <div class="ambient__orb ambient__orb--1"></div>
+      <div class="ambient__orb ambient__orb--2"></div>
+      <div class="ambient__orb ambient__orb--3"></div>
+      <div class="ambient__grid"></div>
     </div>
-    <button type="button" id="introSkip" class="intro__skip">Saltar</button>
-  </div>
 
-  <header class="nav">
-    <div class="nav__inner">
-      <a href="#" class="nav__brand">GALEXX</a>
-      <ul class="nav__links">
-        <li><a href="#drops">Drops</a></li>
-        <li><a href="#lookbook">Lookbook</a></li>
-        <li><a href="store.html">Tienda</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-      <a href="store.html" class="nav__cta">Comprar</a>
-      <button type="button" class="nav__burger" aria-label="Menú">
-        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
+    <div id="intro" class="intro" aria-label="Intro">
+      <video id="introMedia" class="intro__media" muted playsinline preload="auto" poster="images/hero-hq.jpg"></video>
+      <div class="intro__veil"></div>
+      <div class="intro__content">
+        <div class="intro__logo">Galexx</div>
+        <p class="intro__tag">MX · Gorras premium</p>
+        <div class="intro__bar"><div class="intro__bar-fill"></div></div>
+      </div>
+      <button type="button" id="introSkip" class="intro__skip">Saltar</button>
     </div>
-  </header>
 
-  <main class="wrap">
-    <section class="hero">
-      <div class="hero__grid">
-        <div class="hero__copy reveal">
-          <div class="hero__badge">Edición limitada · CDMX</div>
-          <h1 class="hero__title">
-            <span>Gorras</span>
-            <span>con actitud.</span>
-          </h1>
-          <p class="hero__sub">Diseño urbano, materiales premium y drops que no vuelven.</p>
-          <div class="hero__actions">
-            <a href="store.html" class="btn btn--gold">Ver tienda</a>
-            <a href="#drops" class="btn btn--glass">Último drop</a>
+    <header class="nav">
+      <div class="nav__inner">
+        <a href="#" class="nav__brand">GALEXX<span>MX</span></a>
+        <ul class="nav__links">
+          <li><a href="#drops">Drops</a></li>
+          <li><a href="#craft">Calidad</a></li>
+          <li><a href="#lookbook">Lookbook</a></li>
+          <li><a href="store.html">Tienda</a></li>
+        </ul>
+        <a href="store.html" class="nav__cta">Comprar</a>
+        <button type="button" class="nav__burger" aria-label="Menú">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>GALEXX MX</span><span>·</span><span>EDICIÓN LIMITADA</span><span>·</span><span>HECHO EN CDMX</span><span>·</span><span>GORRAS PREMIUM</span><span>·</span>
+        <span>GALEXX MX</span><span>·</span><span>EDICIÓN LIMITADA</span><span>·</span><span>HECHO EN CDMX</span><span>·</span><span>GORRAS PREMIUM</span><span>·</span>
+      </div>
+    </div>
+
+    <section class="hero-cine">
+      <div class="hero-cine__bg img-wrap">
+        <picture>
+          <source srcset="hero.png" type="image/png" />
+          <img src="images/hero-hq.jpg" alt="" class="hero-cine__bg-img is-loaded" width="1408" height="768" fetchpriority="high" decoding="async" />
+        </picture>
+      </div>
+      <div class="hero-cine__veil"></div>
+      <div class="wrap hero-cine__content">
+        <div class="hero-cine__left reveal">
+          <p class="sec-label">Drop 01 · 2026</p>
+          <h1 class="hero-cine__title">Gorras<br /><em>sin compromiso.</em></h1>
+          <p class="hero-cine__sub">Streetwear de lujo. Producción limitada. Cada pieza numerada.</p>
+          <div class="hero-cine__stats">
+            <div><strong>03</strong><span>Modelos</span></div>
+            <div><strong>CDMX</strong><span>Origen</span></div>
+            <div><strong>100%</strong><span>Premium</span></div>
+          </div>
+          <div class="hero-cine__actions">
+            <a href="store.html" class="btn btn--gold">Comprar ahora</a>
+            <a href="#drops" class="btn btn--glass">Ver colección</a>
           </div>
         </div>
-        <div class="hero__visual reveal reveal--delay-1">
-          <div class="hero__frame">
-            <div class="hero__frame-inner img-wrap is-loading">
-              <img
-                src="images/hero-md.jpg"
-                alt="Gorra Galexx MX"
-                width="800"
-                height="800"
-                fetchpriority="high"
-                decoding="async"
-                onload="this.classList.add('is-loaded');this.parentElement.classList.remove('is-loading')"
-              />
+        <div class="hero-cine__thumbs reveal reveal--delay-1">
+          <a href="store.html" class="hero-cine__thumb glass">
+            <img src="images/cap1-hq.jpg" alt="Origen" width="120" height="120" loading="eager" decoding="async" />
+            <span>Origen</span>
+          </a>
+          <a href="store.html" class="hero-cine__thumb glass">
+            <img src="images/cap2-hq.jpg" alt="Trucker" width="120" height="120" loading="eager" decoding="async" />
+            <span>Trucker</span>
+          </a>
+          <a href="store.html" class="hero-cine__thumb glass">
+            <img src="images/cap3-hq.jpg" alt="Premium" width="120" height="120" loading="eager" decoding="async" />
+            <span>Premium</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero-cine__scroll"><span>Scroll</span><div class="hero-cine__scroll-line"></div></div>
+    </section>
+
+    <section id="drops" class="section-drops">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div>
+            <p class="sec-label">Colección</p>
+            <h2>El drop</h2>
+          </div>
+          <p class="sec-head__right">Fotografía de producto en alta definición. Sin stock infinito.</p>
+        </div>
+
+        <div class="bento reveal">
+          <a href="store.html" class="bento__featured glass glass--shimmer">
+            <div class="bento__img img-wrap">
+              <picture>
+                <source srcset="cap1.png" type="image/png" />
+                <img src="images/cap1-hq.jpg" alt="Origen Concreto" width="1024" height="1024" loading="lazy" decoding="async" class="is-loaded" />
+              </picture>
+              <span class="bento__tag">Más vendida</span>
+            </div>
+            <div class="bento__info">
+              <p class="card__type">Snapback</p>
+              <h3>Origen Concreto</h3>
+              <p class="card__price">$650 MXN</p>
+              <span class="bento__link">Comprar →</span>
+            </div>
+          </a>
+          <a href="store.html" class="bento__card glass">
+            <div class="bento__img img-wrap">
+              <picture>
+                <source srcset="cap2.png" type="image/png" />
+                <img data-src="images/cap2-hq.jpg" data-png="cap2.png" alt="Atardecer Trucker" width="1024" height="1024" decoding="async" />
+              </picture>
+            </div>
+            <div class="bento__info">
+              <h3>Atardecer Trucker</h3>
+              <p class="card__price">$550 MXN</p>
+            </div>
+          </a>
+          <a href="store.html" class="bento__card glass">
+            <div class="bento__img img-wrap">
+              <picture>
+                <source srcset="cap3.png" type="image/png" />
+                <img data-src="images/cap3-hq.jpg" data-png="cap3.png" alt="Negra Premium" width="1024" height="1024" decoding="async" />
+              </picture>
+            </div>
+            <div class="bento__info">
+              <h3>Negra Premium</h3>
+              <p class="card__price">$799 MXN</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="craft" class="section-craft">
+      <div class="wrap">
+        <div class="craft-grid reveal">
+          <div class="craft-grid__copy glass">
+            <p class="sec-label">Craft</p>
+            <h2>Detalles que se sienten</h2>
+            <ul class="craft-list">
+              <li><span>01</span> Bordado de alto relieve</li>
+              <li><span>02</span> Visera ergonómica reforzada</li>
+              <li><span>03</span> Interior acolchado premium</li>
+              <li><span>04</span> Ajuste preciso · talla única</li>
+            </ul>
+            <a href="store.html" class="btn btn--gold">Explorar tienda</a>
+          </div>
+          <div class="craft-grid__visual">
+            <div class="craft-stack glass">
+              <img src="images/cap3-hq.jpg" alt="Detalle gorra" width="600" height="600" loading="lazy" decoding="async" />
+            </div>
+            <div class="craft-stack craft-stack--offset glass">
+              <img src="images/cap2-hq.jpg" alt="Detalle gorra" width="600" height="600" loading="lazy" decoding="async" />
             </div>
           </div>
-          <div class="hero__float glass glass--shimmer">
-            <span>Nuevo drop</span>
-            <strong>2026</strong>
-          </div>
         </div>
       </div>
     </section>
 
-    <section id="drops" class="drops">
-      <div class="sec-head reveal">
-        <div>
-          <p class="sec-label">Colección</p>
-          <h2>Último drop</h2>
+    <section id="lookbook" class="section-lookbook">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div>
+            <p class="sec-label">Lookbook</p>
+            <h2>En la calle</h2>
+          </div>
         </div>
-        <p>Piezas numeradas. Cuando se acaban, se acaban.</p>
       </div>
-      <div class="drops__grid">
-        <a href="store.html" class="card glass glass--shimmer reveal">
-          <div class="card__img img-wrap is-loading">
-            <img data-src="images/cap1-md.jpg" alt="Origen Concreto" width="800" height="800" decoding="async" />
-          </div>
-          <div class="card__body">
-            <p class="card__type">Snapback</p>
-            <h3 class="card__name">Origen Concreto</h3>
-            <p class="card__price">$650 MXN</p>
-            <p class="card__cta">Ver en tienda →</p>
-          </div>
-        </a>
-        <a href="store.html" class="card glass glass--shimmer reveal reveal--delay-1">
-          <div class="card__img img-wrap is-loading">
-            <img data-src="images/cap2-md.jpg" alt="Atardecer Trucker" width="800" height="800" decoding="async" />
-          </div>
-          <div class="card__body">
-            <p class="card__type">Mesh back</p>
-            <h3 class="card__name">Atardecer Trucker</h3>
-            <p class="card__price">$550 MXN</p>
-            <p class="card__cta">Ver en tienda →</p>
-          </div>
-        </a>
-        <a href="store.html" class="card glass glass--shimmer reveal reveal--delay-2">
-          <div class="card__img img-wrap is-loading">
-            <img data-src="images/cap3-md.jpg" alt="Negra Premium" width="800" height="800" decoding="async" />
-          </div>
-          <div class="card__body">
-            <p class="card__type">Edición limitada</p>
-            <h3 class="card__name">Negra Premium</h3>
-            <p class="card__price">$799 MXN</p>
-            <p class="card__cta">Ver en tienda →</p>
-          </div>
-        </a>
+      <div class="lookbook-masonry wrap">
+        <figure class="lookbook-masonry__item lookbook-masonry__item--tall reveal glass">
+          <picture>
+            <source srcset="lifestyle1.png" type="image/png" />
+            <img data-src="images/lifestyle1-hq.jpg" alt="CDMX" width="1408" height="768" decoding="async" />
+          </picture>
+          <figcaption>CDMX · Centro Histórico</figcaption>
+        </figure>
+        <figure class="lookbook-masonry__item reveal reveal--delay-1 glass">
+          <picture>
+            <source srcset="cap1.png" type="image/png" />
+            <img data-src="images/cap1-hq.jpg" alt="Producto" width="1024" height="1024" decoding="async" />
+          </picture>
+          <figcaption>Origen · Concreto</figcaption>
+        </figure>
+        <figure class="lookbook-masonry__item reveal reveal--delay-2 glass">
+          <picture>
+            <source srcset="lifestyle2.png" type="image/png" />
+            <img data-src="images/lifestyle2-hq.jpg" alt="Sesión" width="1408" height="768" decoding="async" />
+          </picture>
+          <figcaption>Sesión · Skate</figcaption>
+        </figure>
+        <figure class="lookbook-masonry__item lookbook-masonry__item--wide reveal reveal--delay-3 glass">
+          <picture>
+            <source srcset="cap3.png" type="image/png" />
+            <img data-src="images/cap3-hq.jpg" alt="Premium" width="1024" height="1024" decoding="async" />
+          </picture>
+          <figcaption>Negra · Premium</figcaption>
+        </figure>
       </div>
+    </section>
 
-      <div class="strip reveal">
-        <div class="strip__item glass">
-          <h3>Bordado premium</h3>
-          <p>Detalle frontal de alto relieve</p>
-        </div>
-        <div class="strip__item glass">
-          <h3>Envío nacional</h3>
-          <p>CDMX y todo México</p>
-        </div>
-        <div class="strip__item glass">
-          <h3>Pago seguro</h3>
-          <p>Transferencia o contraentrega</p>
+    <section id="contacto" class="cta-premium reveal">
+      <div class="cta-premium__glow"></div>
+      <div class="wrap cta-premium__inner">
+        <h2>Únete al movimiento</h2>
+        <p>Restocks, drops y contenido exclusivo en Instagram.</p>
+        <div class="cta-premium__actions">
+          <a href="https://www.instagram.com/galexx_mx" target="_blank" rel="noopener" class="btn btn--gold">@galexx_mx</a>
+          <a href="store.html" class="btn btn--glass">Tienda oficial</a>
         </div>
       </div>
     </section>
-  </main>
 
-  <section id="lookbook" class="lookbook">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <div>
-          <p class="sec-label">Lookbook</p>
-          <h2>En la calle</h2>
+    <footer class="footer footer--rich">
+      <div class="wrap footer__inner">
+        <div class="footer__col">
+          <span class="footer__brand">GALEXX MX</span>
+          <p class="footer__copy">Gorras premium · Ciudad de México</p>
         </div>
+        <div class="footer__col">
+          <a href="#drops">Drops</a>
+          <a href="store.html">Tienda</a>
+          <a href="https://www.instagram.com/galexx_mx" target="_blank" rel="noopener">Instagram</a>
+        </div>
+        <p class="footer__copy">© 2026 Galexx MX</p>
       </div>
-    </div>
-    <div class="lookbook__track">
-      <figure class="lookbook__slide glass reveal">
-        <div class="img-wrap is-loading" style="width:100%;height:100%;position:absolute;inset:0">
-          <img data-src="images/lifestyle1-md.jpg" alt="CDMX" width="800" height="1000" decoding="async" style="width:100%;height:100%;object-fit:cover" />
-        </div>
-        <figcaption class="lookbook__cap">CDMX · Centro</figcaption>
-      </figure>
-      <figure class="lookbook__slide glass reveal reveal--delay-1">
-        <div class="img-wrap is-loading" style="width:100%;height:100%;position:absolute;inset:0">
-          <img data-src="images/lifestyle2-md.jpg" alt="Skate" width="800" height="1000" decoding="async" style="width:100%;height:100%;object-fit:cover" />
-        </div>
-        <figcaption class="lookbook__cap">Sesión · Concreto</figcaption>
-      </figure>
-      <figure class="lookbook__slide glass reveal reveal--delay-2">
-        <div class="img-wrap is-loading" style="width:100%;height:100%;position:absolute;inset:0">
-          <img data-src="images/cap3-md.jpg" alt="Drop Galexx" width="800" height="800" decoding="async" style="width:100%;height:100%;object-fit:cover" />
-        </div>
-        <figcaption class="lookbook__cap">Drop · Premium</figcaption>
-      </figure>
-    </div>
-  </section>
+    </footer>
 
-  <section id="contacto" class="cta-band glass glass--shimmer reveal">
-    <h2>Únete al movimiento</h2>
-    <p>Drops, restocks y contenido antes que nadie.</p>
-    <div class="cta-band__actions">
-      <a
-        href="https://www.instagram.com/galexx_mx"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn btn--gold"
-      >@galexx_mx</a>
-      <a href="store.html" class="btn btn--glass">Ir a la tienda</a>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="footer__inner">
-      <span class="footer__brand">GALEXX MX</span>
-      <p class="footer__copy">© 2026 Galexx MX. Todos los derechos reservados.</p>
-      <a href="https://www.instagram.com/galexx_mx" target="_blank" rel="noopener">Instagram</a>
-    </div>
-  </footer>
-
-  <a href="store.html" class="fab-shop">Tienda</a>
-
-  <script src="assets/galexx.js" defer></script>
+    <a href="store.html" class="fab-shop">Tienda</a>
+    <script src="assets/galexx.js" defer></script>
   </body>
 </html>

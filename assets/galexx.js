@@ -26,21 +26,32 @@
     if (await assetExists('intro.mp4')) return { kind: 'video', src: 'intro.mp4', type: 'video/mp4' };
     if (await assetExists('intro-poster.jpg')) return { kind: 'image', src: 'intro-poster.jpg' };
     if (await assetExists('intro.jpg')) return { kind: 'image', src: 'intro.jpg' };
-    return { kind: 'image', src: 'images/hero-md.jpg' };
+    return { kind: 'image', src: 'images/hero-hq.jpg' };
   }
 
   function mountIntroVideo(media, introMediaEl) {
     const video = document.createElement('video');
+    video.id = 'introMedia';
     video.className = 'intro__media';
     video.src = media.src;
     video.muted = true;
     video.playsInline = true;
     video.autoplay = true;
     video.preload = 'auto';
+    video.poster = 'images/hero-hq.jpg';
     video.setAttribute('playsinline', '');
-    video.setAttribute('webkit-playsinline', '');
     introMediaEl.replaceWith(video);
     return video;
+  }
+
+  function useIntroImage(media, introMediaEl) {
+    const img = document.createElement('img');
+    img.id = 'introMedia';
+    img.className = 'intro__media';
+    img.src = media.src;
+    img.alt = '';
+    introMediaEl.replaceWith(img);
+    return img;
   }
 
   function finishIntro() {
@@ -67,7 +78,12 @@
     };
 
     if (media.kind === 'video' && introMedia) {
-      const video = mountIntroVideo(media, introMedia);
+      let video = introMedia;
+      if (video.tagName !== 'VIDEO') video = mountIntroVideo(media, introMedia);
+      else {
+        video.src = media.src;
+        video.poster = 'images/hero-hq.jpg';
+      }
       video.addEventListener('ended', () => scheduleDone(400));
       video.addEventListener('error', () => scheduleDone(INTRO_MIN_MS));
       video.addEventListener('loadedmetadata', () => {
@@ -79,8 +95,11 @@
       video.play().catch(() => scheduleDone(INTRO_MIN_MS));
       scheduleDone(INTRO_MAX_MS);
     } else if (introMedia) {
-      introMedia.src = media.src;
-      introMedia.alt = '';
+      if (introMedia.tagName === 'VIDEO') useIntroImage(media, introMedia);
+      else {
+        introMedia.src = media.src;
+        introMedia.alt = '';
+      }
       scheduleDone(INTRO_MIN_MS);
     } else {
       scheduleDone(INTRO_MIN_MS);
@@ -89,12 +108,21 @@
     skipBtn?.addEventListener('click', finishIntro);
   }
 
+  function bestImageSrc(img) {
+    const hq = img.getAttribute('data-src');
+    const picture = img.closest('picture');
+    const pngSrc = picture?.querySelector('source[type="image/png"]')?.getAttribute('srcset');
+    if (window.innerWidth >= 768 && pngSrc) return pngSrc;
+    return hq;
+  }
+
   function initLazyImages() {
     document.querySelectorAll('img[data-src]').forEach((img) => {
-      const wrap = img.closest('.img-wrap');
+      const wrap = img.closest('.img-wrap') || img.parentElement;
       const load = () => {
-        const src = img.getAttribute('data-src');
+        const src = bestImageSrc(img);
         if (!src) return;
+        wrap?.classList.add('is-loading');
         img.onload = () => {
           img.classList.add('is-loaded');
           wrap?.classList.remove('is-loading');

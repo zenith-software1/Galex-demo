@@ -1,13 +1,11 @@
 (function () {
   'use strict';
 
+  /* Una foto por modelo: cap1, cap2, cap3. hero/lifestyle = intro y lookbook solamente. */
   const products = [
-    { id: 'g1', name: 'Origen Concreto', price: 65000, image: 'images/cap1-md.jpg', desc: 'Snapback · bordado premium' },
-    { id: 'g2', name: 'Atardecer Trucker', price: 55000, image: 'images/cap2-md.jpg', desc: 'Mesh back · visera curva' },
-    { id: 'g3', name: 'Grit Oliva', price: 60000, image: 'images/cap3-md.jpg', desc: 'Dad hat · tono oliva' },
-    { id: 'g4', name: 'Lifestyle Daily', price: 45900, image: 'images/lifestyle1-md.jpg', desc: 'Uso diario · fit cómodo' },
-    { id: 'g5', name: 'Vintage Wash', price: 49900, image: 'images/lifestyle2-md.jpg', desc: 'Acabado vintage exclusivo' },
-    { id: 'g6', name: 'Negra Premium', price: 79900, image: 'images/hero-md.jpg', desc: 'Material resistente al agua' },
+    { id: 'g1', name: 'Origen Concreto', price: 65000, image: 'images/cap1-md.jpg', desc: 'Snapback negra · bordado premium' },
+    { id: 'g2', name: 'Atardecer Trucker', price: 55000, image: 'images/cap2-md.jpg', desc: 'Mesh back · logo minimalista' },
+    { id: 'g3', name: 'Negra Premium', price: 79900, image: 'images/cap3-md.jpg', desc: 'Material premium · edición limitada' },
   ];
 
   function formatPrice(cents) {

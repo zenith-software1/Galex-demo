@@ -1,35 +1,58 @@
-# Archivos para la intro (opcional)
+# Medios para la intro y productos
 
-Coloca estos archivos en la carpeta `site/` (junto a `index.html`).
+## Video de intro (recomendado)
 
-## Opción recomendada: video
+Coloca en `site/` con el nombre **`intro.mp4`** (opcional: `intro.webm`).
 
-| Archivo | Descripción |
-|---------|-------------|
-| `intro.mp4` | Video corto (3–6 s), sin audio o mute. Formato H.264. |
-| `intro.webm` | (Opcional) Misma intro en WebM para mejor carga en Chrome. |
+### Qué tipo de video funciona mejor
 
-**Recomendaciones:**
-- Resolución: 1920×1080 o 1080×1080
-- Peso: menos de 3 MB
-- Contenido: logo, gorra en slow-mo, humo, ciudad de noche, etc.
+| Estilo | Descripción |
+|--------|-------------|
+| **Hero producto** | Gorra en primer plano, fondo negro o desenfocado, luz lateral dorada/azul. 3–5 s. |
+| **Slow motion** | Mano ajustando la gorra, gotas, humo suave, cámara lenta. Muy premium. |
+| **Logo reveal** | Pantalla negra → flash del logo GALEXX → destello en la visera. |
+| **Street / CDMX** | Plano corto calle de noche + corte a la gorra (sin mucho texto). |
 
-## Opción imagen
+### Especificaciones técnicas
 
-| Archivo | Descripción |
-|---------|-------------|
-| `intro-poster.jpg` | Imagen fija para la intro (prioridad si no hay video) |
-| `intro.jpg` | Alternativa con otro nombre |
+- **Duración:** 3 a 6 segundos (máx. 8 s)
+- **Formato:** MP4 (H.264), sin audio o mute
+- **Resolución:** 1920×1080 (horizontal) o 1080×1920 (vertical, también sirve)
+- **Peso:** menos de **3 MB** (ideal 1–2 MB)
+- **Frame rate:** 24 o 30 fps
+- **Look:** oscuro, alto contraste, colores fríos o dorados — combina con el sitio
 
-**Recomendaciones:**
-- JPG optimizado, menos de 400 KB
-- Tono oscuro para que el logo “Galexx” se lea bien
+### Cómo grabarlo o conseguirlo
 
-## Si no agregas nada
+- **Celular:** 4K → recortar a 1080p en CapCut / InShot → exportar “para web”
+- **Stock gratis:** Pexels / Pixabay — busca `cap black slow motion`, `streetwear hat`, `smoke dark`
+- **IA:** Runway / Pika — prompt: *"luxury black cap rotating, dark studio, gold rim light, cinematic"*
 
-La intro usa `images/hero-md.jpg` automáticamente.
+### Poster (opcional)
 
-## Imágenes del sitio
+Si no hay video, usa **`intro-poster.jpg`** (una imagen fija, &lt; 400 KB, tono oscuro).
 
-Las fotos grandes (`cap1.png`, etc.) ya tienen versiones optimizadas en `images/*-md.jpg`.
-Si cambias fotos, vuelve a generar las versiones `-md` o reemplázalas manualmente (≈800px ancho, JPG 80% calidad).
+Si no subes nada, la intro usa `images/hero-md.jpg`.
+
+---
+
+## Fotos de productos (gorras)
+
+Para la **tienda**, usa solo fotos donde se vea la gorra aislada:
+
+| Archivo en `site/` | Uso |
+|--------------------|-----|
+| `cap1.png` | Gorra 1 (negra / Origen) |
+| `cap2.png` | Gorra 2 (trucker / logo) |
+| `cap3.png` | Gorra 3 (oliva / premium) |
+| `hero.png` | Solo hero del home e intro (no mezclar con productos) |
+| `lifestyle1.png`, `lifestyle2.png` | Solo lookbook (personas / calle) |
+
+Después de cambiar PNGs, regenera las versiones web en `images/*-md.jpg` (≈800px, JPG 80%).
+
+---
+
+## Después de subir `intro.mp4`
+
+1. Copia el archivo a `d:\galex\site\intro.mp4`
+2. Avísanos — el sitio lo detecta solo en la intro (prioridad: `intro.webm` → `intro.mp4` → poster → hero).

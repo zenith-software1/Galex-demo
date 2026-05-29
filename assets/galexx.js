@@ -29,6 +29,20 @@
     return { kind: 'image', src: 'images/hero-md.jpg' };
   }
 
+  function mountIntroVideo(media, introMediaEl) {
+    const video = document.createElement('video');
+    video.className = 'intro__media';
+    video.src = media.src;
+    video.muted = true;
+    video.playsInline = true;
+    video.autoplay = true;
+    video.preload = 'auto';
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    introMediaEl.replaceWith(video);
+    return video;
+  }
+
   function finishIntro() {
     if (!introEl || introEl.classList.contains('is-done')) return;
     introEl.classList.add('is-done');
@@ -53,15 +67,7 @@
     };
 
     if (media.kind === 'video' && introMedia) {
-      const video = document.createElement('video');
-      video.className = 'intro__media';
-      video.src = media.src;
-      video.type = media.type;
-      video.muted = true;
-      video.playsInline = true;
-      video.autoplay = true;
-      video.setAttribute('playsinline', '');
-      introMedia.replaceWith(video);
+      const video = mountIntroVideo(media, introMedia);
       video.addEventListener('ended', () => scheduleDone(400));
       video.addEventListener('error', () => scheduleDone(INTRO_MIN_MS));
       video.play().catch(() => scheduleDone(INTRO_MIN_MS));
